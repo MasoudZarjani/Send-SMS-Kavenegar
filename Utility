@@ -3,9 +3,8 @@ public static function sms_verification($mobile_number, $verification_code)
         try {
             $sender = "100065995";
             $receptor = $mobile_number;
-            $message = $verification_code." ، کد فعال سازی شما در ".
-             config('constants.ApplicationName.Name');
-            $api = new \Kavenegar\KavenegarApi(env('DEXSHARP_SMS_PANEL_APIKEY'));
+            $message = $verification_code." ، کد فعال سازی شما در سامانه";
+            $api = new \Kavenegar\KavenegarApi(env('SMS_PANEL_APIKEY'));
             $res = $api->Send($sender, $receptor, $message);
             if ($res) {
                 return true;
